@@ -91,19 +91,19 @@ $("input[name='express']").on("click", function(){
 });
 
 //Add cost to Javascript Libraries
-$("input[name='js-libs']").on("click", function(){
-  if($(this).is(":checked")){
-    totalCost = totalCost + 100;
-    $(".activities p").text("Total Cost: $ " + totalCost);
+ $("input[name='js-libs']").on("click", function(){
+    if($(this).is(":checked")){
+      totalCost = totalCost + 100;
+      $(".activities p").text("Total Cost: $ " + totalCost);
     } else {
-    totalCost = totalCost - 100;
-    $("activities p").text("Total Cost: $ " + totalCost);
+      totalCost = totalCost - 100;
+      $(".activities p").text("Total Cost: $ " + totalCost);
+    }
     //if the user doesn't select JS libraries then other events will be available
     $("[name='node']").removeAttr("disabled").parent().css({"color": "#54e565"});
     //make a conflicting event unavailable
     $("[name='node']").attr("disabled", "true").parent().css({"text-decoration": "line-through"});
-  }
-});
+  });
 
 //Add cost to NODE event
 $("input[name='node']").on("click", function(){
