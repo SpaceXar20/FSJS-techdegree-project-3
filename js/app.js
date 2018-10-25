@@ -33,10 +33,9 @@ if($('#design option:selected').text()==="Theme - JS Puns"){
  $("#color option[value = steelblue]").hide();
  $("#color option[value = dimgrey]").hide();    
 } else if ($("#design option:selected").text()==="Select Theme") {
-  $shirtColor.hide();  
-} else if ($("#design option:selected").text()==="Theme - I ♥ JS") {
-  $shirtDesign.change(function() {
-    if ($("design option:selected").text() === "Theme - I ♥ JS") {
+  $shirtColor.hide();
+  //Matching I♥ JS theme with I♥ JS shirts  
+} else if ($("#design option:selected").text()===("Theme - I ♥ JS") {
       $shirtColor.show();
       $("#color option[value = tomato]").show();
       $("#color option[value = steelblue]").show();
@@ -44,11 +43,9 @@ if($('#design option:selected').text()==="Theme - JS Puns"){
       $("#color option[value = cornflowerblue]").hide();
       $("#color option[value = darkslategrey]").hide();
       $("#color option[value = gold]").hide();
-
-}
 });
 
-//Matching I♥ JS theme with I♥ JS shirts
+
 
 
 //Registering for Tech Workshops
