@@ -61,12 +61,14 @@ $("input[name='js-frameworks']").on("click", function(){
   if($(this).is(":checked")){
    totalCost = totalCost + 100; //$100 is added to variable
    $(".activities p").text("Total: $ " + totalCost);
+
+
    //Prevent conflict between JS Frameworks and Express Workshop
 $("[name='express']").attr("disabled", "true").parent().css({"color":"#ce2121"});
 } else {
   //take away $100 from totalCost
   totalCost = totalCost - 100;
-  $(".activities p").text("Total: $ " + cost);
+  $(".activities p").text("Total: $ " + totalCost);
   $("[name='express']").removeAttr("disabled").parent().css({"color":"#54e565"});
  }
 });
@@ -93,13 +95,13 @@ $("input[name='js-libs']").on("click", function(){
   if($(this).is(":checked")){
     totalCost = totalCost + 100;
     $(".activities p").text("Total Cost: $ " + totalCost);
-    //make a conflicting event unavailable
-    $("[name='node']").attr("disabled", "true").parent().css({"text-decoration": "line-through"});
-  } else {
+    } else {
     totalCost = totalCost - 100;
     $("activities p").text("Total Cost: $ " + totalCost);
     //if the user doesn't select JS libraries then other events will be available
     $("[name='node']").removeAttr("disabled").parent().css({"color": "#54e565"});
+    //make a conflicting event unavailable
+    $("[name='node']").attr("disabled", "true").parent().css({"text-decoration": "line-through"});
   }
 });
 
@@ -134,6 +136,7 @@ $("input[name='build-tools']").on("click", function(){
 $("input[name='npm']").on("click", function(){
   if($(this).is(":checked")){
     totalCost = totalCost + 100;
+    $(".activities p").text("Total Cost: $ " + totalCost);
   } else {
     totalCost = totalCost - 100;
     $(".activities p").text("Total Cost: $ " + totalCost);
@@ -144,6 +147,7 @@ $("input[name='npm']").on("click", function(){
 $("input[name='all']").on("click", function(){
   if($(this).is(":checked")){
     totalCost = totalCost + 200;
+    $(".activities p").text("Total Cost: $ " + totalCost);
   } else {
     totalCost = totalCost - 200;
     $(".activities p").text("Total Cost: $ " + totalCost);
