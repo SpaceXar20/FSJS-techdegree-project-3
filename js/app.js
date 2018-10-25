@@ -35,14 +35,16 @@ if($('#design option:selected').text()==="Theme - JS Puns"){
 } else if ($("#design option:selected").text()==="Select Theme") {
   $shirtColor.hide();
   //Matching I♥ JS theme with I♥ JS shirts  
-} else if ($("#design option:selected").text()===("Theme - I ♥ JS") {
-      $shirtColor.show();
+} else if ($("#design option:selected").text()===("Theme - I ♥ JS") )
+  $shirtColor.show();
       $("#color option[value = tomato]").show();
       $("#color option[value = steelblue]").show();
       $("#color option[value = dimgrey]").show();
       $("#color option[value = cornflowerblue]").hide();
       $("#color option[value = darkslategrey]").hide();
       $("#color option[value = gold]").hide();
+
+
 });
 
 
