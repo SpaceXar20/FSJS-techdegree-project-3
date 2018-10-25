@@ -63,8 +63,9 @@ $("input[name='js-frameworks']").on("click", function(){
    $(".activities p").text("Total: $ " + totalCost);
 
 
-   //Prevent conflict between JS Frameworks and Express Workshop
+   //Prevent conflict between JS Frameworks and other events that are at the same time
 $("[name='express']").attr("disabled", "true").parent().css({"color":"#ce2121"});
+$("[name='build-tools']").attr("disabled", "true").parent().css({"color":"#ce2121"});
 } else {
   //take away $100 from totalCost
   totalCost = totalCost - 100;
