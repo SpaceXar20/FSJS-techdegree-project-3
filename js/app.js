@@ -24,7 +24,7 @@ let $shirtColor = $("#colors-js-puns");
 //matching JS Puns theme with JS Puns shirts
 $shirtColor.hide();
 $shirtDesign.change(function(){
-if($("#design option:selected").text()==="Theme - JS Puns"){
+if($('#design option:selected').text()==="Theme - JS Puns"){
  $shirtColor.show();
  $("#color option[value = cornflowerblue]").show();
  $("#color option[value = darkslategrey]").show();
@@ -34,13 +34,9 @@ if($("#design option:selected").text()==="Theme - JS Puns"){
  $("#color option[value = dimgrey]").hide();    
 } else if ($("#design option:selected").text()==="Select Theme") {
   $shirtColor.hide();  
-}
-});
-
-//Matching I♥ JS theme with I♥ JS shirts
-$shirtColor.hide();
-$shirtDesign.change(function() {
-    if ($("design option:selected").text() === "Theme - I &#9829; JS") {
+} else if ($("#design option:selected").text()==="Theme - I ♥ JS") {
+  $shirtDesign.change(function() {
+    if ($("design option:selected").text() === "Theme - I ♥ JS") {
       $shirtColor.show();
       $("#color option[value = tomato]").show();
       $("#color option[value = steelblue]").show();
@@ -48,11 +44,12 @@ $shirtDesign.change(function() {
       $("#color option[value = cornflowerblue]").hide();
       $("#color option[value = darkslategrey]").hide();
       $("#color option[value = gold]").hide();
-  
-    } else if ($("#design option:selected").text()==="Select Theme") {
-      $shirtColor.hide();   
+
 }
 });
+
+//Matching I♥ JS theme with I♥ JS shirts
+
 
 //Registering for Tech Workshops
 
