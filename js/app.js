@@ -24,7 +24,7 @@ let $shirtColor = $("#colors-js-puns");
 //matching JS Puns theme with JS Puns shirts
 $shirtColor.hide();
 $shirtDesign.change(function(){
-if($('#design option:selected').text()==="Theme - JS Puns"){
+if($('#design').val()==="js puns"){ //$(‘#design’).val()
  $shirtColor.show();
  $("#color option[value = cornflowerblue]").show();
  $("#color option[value = darkslategrey]").show();
@@ -32,10 +32,10 @@ if($('#design option:selected').text()==="Theme - JS Puns"){
  $("#color option[value = tomato]").hide();
  $("#color option[value = steelblue]").hide();
  $("#color option[value = dimgrey]").hide();    
-} else if ($("#design option:selected").text()==="Select Theme") {
+} else if ($("#design").val()==="Select Theme") {
   $shirtColor.hide();
   //Matching I♥ JS theme with I♥ JS shirts  
-} else if ($("#design option:selected").text()===("Theme - I ♥ JS") )
+} else if ($("#design").val()===("heart js") )
   $shirtColor.show();
       $("#color option[value = tomato]").show();
       $("#color option[value = steelblue]").show();
@@ -148,7 +148,7 @@ $("input[name='build-tools']").on("click", function(){
 });
 
 //When the user chooses the npm workshop
-$("input[name='npm']").on("click", function(){
+$("input[name='npm']").on("change", function(){
   if($(this).is(":checked")){
     totalCost = totalCost + 100;
     $(".activities p").text("Total Cost: $ " + totalCost);
