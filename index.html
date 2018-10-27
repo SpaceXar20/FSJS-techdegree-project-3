@@ -15,7 +15,7 @@
       <h1>Full Stack Conf</h1>
     </header>
 
-    <form action="index.html" method="post">
+    <form action="index.html" method="post" name="myForm">
               
       <fieldset>         
         <legend>Basic Info</legend>
@@ -83,12 +83,12 @@
         <label><input type="checkbox" name="npm"> npm Workshop — Wednesday 1pm-4pm, $100</label>
                   	
       </fieldset>
-      <fieldset>
+      <fieldset class="payRequired">
         <legend>Payment Info</legend>
 
         <label for="payment">I'm going to pay with:</label>
         <select id="payment" name="user_payment">
-          <option value="select_method">Select Payment Method</option>
+          <option value="select_method" class="selectMethod">Select Payment Method</option>
           <option value="credit card">Credit Card</option>
           <option value="paypal">PayPal</option>
           <option value="bitcoin">Bitcoin</option>

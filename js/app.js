@@ -191,27 +191,49 @@ $("#payment").val("credit card").show();
 $(".paypal").focus();
 
 //hide the "PayPal" and "Bitcoin" information./
-$(".paypal").show();
-$(".bitcoin").show();
+$(".paypal").hide();
+$(".bitcoin").hide();
 
 //Payment option in the select menu should match the payment option displayed on the page.
 //When a user selects the "PayPal" payment option, the PayPal information should display, and the credit card and “Bitcoin” information should be hidden.
 let $paymentMethod = $("#payment");
 $paymentMethod.change(function(){
   if($("#payment option:selected").text()==="PayPal"){
-  $(".paypal").show();
+  $(".paypal").toggle(1000); 
   $(".bitcoin").hide();
   $("#credit-card").hide();
+  
   // If the user selects "Bitcoin" option, its info should display,and credit card and “PayPal” information should be hidden.
   } else if ($("#payment option:selected").text()==="Bitcoin") {
-    $(".bitcoin").show();
+    $(".bitcoin").toggle("fast");
     $(".paypal").hide();
     $("#credit-card").hide();
+    
     //if the user selects credit card, then bitcoin and paypal will be unavailable
   } else if ($("#payment option:selected").text()==="Credit Card") {
-    $("#credit-card").show();
+    $("#credit-card").slideToggle(2000);
     $(".paypal").hide();
     $(".bitcoin").hide();
-  }
     
+    //the user needs to make a payment!,no freebies allowed!!!
+  } else if ($("#payment option:selected").text()==="Select Payment Method") {
+    //$('.payRequired').append('<p></p>'); 
+    $("#payment").val("credit card").show();
+    //$(".payRequired p").html("<h2>You cannot proceed until a payment method has been chosen!</h2>").show().css({"color":"red"});
+    $(".selectMethod").fadeOut()
+  } 
 });
+
+//Form Validation
+//If any of the following validation errors exist, prevent the user from submitting the form:
+
+//Name field can't be blank
+const $submitButton = $("<button type='submit'>Register</button>")
+function validateForm() {
+  var x = document.forms["myForm"]["#name"].value;
+  if (x === " ") {
+      alert("Name must be filled out");
+      return false;
+      $submitButton.preventDefault();
+  }
+}
