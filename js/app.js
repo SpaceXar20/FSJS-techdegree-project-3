@@ -26,6 +26,7 @@ $shirtColor.hide();
 $shirtDesign.change(function(){
   if($('#design option:selected').text()==="Theme - JS Puns"){ //$(‘#design’).val()
  $shirtColor.show();
+ $("#color").val("cornflowerblue").show();
  $("#color option[value = cornflowerblue]").show();
  $("#color option[value = darkslategrey]").show();
  $("#color option[value = gold]").show();
@@ -37,6 +38,7 @@ $shirtDesign.change(function(){
   //Matching I♥ JS theme with I♥ JS shirts  
 } else if ($("#design option:selected").text()==="Theme - I ♥ JS") { 
   $shirtColor.show();
+  $("#color").val("tomato").show();
       $("#color option[value = tomato]").show();
       $("#color option[value = steelblue]").show();
       $("#color option[value = dimgrey]").show();
