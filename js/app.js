@@ -131,19 +131,20 @@ $("input[name='node']").on("click", function(){
 
 
 //If the user chooses Builds tools workshop add cost
-$("input[name='build-tools']").on("click", function(){
+$("input[name='build-tools']").on("change", function(){
   if($(this).is(":checked")){
     totalCost = totalCost + 100;
     $(".activities p").text("Total Cost: $ " + totalCost);
+    //prevent other events from conflicting with build tools workshop
+    $("[name='js-frameworks']").attr("disabled", "true").parent().fadeOut("slow");
+   $("[name='express']").attr("disabled", "true").parent().fadeOut("slow");
   } else {
     totalCost = totalCost - 100;
     $(".activities p").text("Total Cost: $ " + totalCost);
-    //prevent other events from conflicting with build tools workshop
-    $("[name='js-frameworks']").attr("disabled", "true").parent().fadeOut("slow");
-    $("[name='express']").attr("disabled", "true").parent().fadeOut("slow");
+    
     //if the user doesn't select "build tools" then other events will be available
     $("[name='js-frameworks']").removeAttr("disabled").parent().toggle()
-    $("[name='express']").removeAttr("disabled").parent().toggle()
+  $("[name='express']").removeAttr("disabled").parent().toggle()
   }
 });
 
@@ -152,12 +153,13 @@ $("input[name='npm']").on("click", function(){
   if($(this).is(":checked")){
     totalCost = totalCost + 100;
     $(".activities p").text("Total Cost: $ " + totalCost);
-  } else {
-    totalCost = totalCost - 100;
-    $(".activities p").text("Total Cost: $ " + totalCost);
     //prevent conflicts with other events
     $("[name='js-libs']").attr("disabled", "true").parent().fadeOut("slow");
     $("[name='node']").attr("disabled", "true").parent().fadeOut("slow");
+  } else {
+    totalCost = totalCost - 100;
+    $(".activities p").text("Total Cost: $ " + totalCost);
+    
     //if the user doesn't select "npm workshop" then other events will be available
     $("[name='js-libs']").removeAttr("disabled").parent().toggle()
     $("[name='node']").removeAttr("disabled").parent().toggle()
