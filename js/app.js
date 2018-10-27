@@ -228,12 +228,10 @@ $paymentMethod.change(function(){
 //If any of the following validation errors exist, prevent the user from submitting the form:
 
 //Name field can't be blank
-const $submitButton = $("<button type='submit'>Register</button>")
-function validateForm() {
-  var x = document.forms["myForm"]["#name"].value;
-  if (x === " ") {
-      alert("Name must be filled out");
-      return false;
-      $submitButton.preventDefault();
-  }
-}
+$("form").submit(function(event){
+  let $nameField = $('user_name')
+  if ( $( "input:first" ).val() === "" ) {
+    alert("Please type your name")
+    return false;
+ }
+});
