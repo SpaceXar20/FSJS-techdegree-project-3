@@ -1,6 +1,7 @@
 $("#name").focus(); //Set focus on the first text field
 
-//”Job Role” section, a text field will be revealed when the "Other" option is selected
+//”Job Role” section,
+// a text field will be revealed when the "Other" option is selected
  $(document).ready(function()
 {
  $("#title").change(function()
@@ -24,7 +25,7 @@ let $shirtColor = $("#colors-js-puns");
 //matching JS Puns theme with JS Puns shirts
 $shirtColor.hide();
 $shirtDesign.change(function(){
-  if($('#design option:selected').text()==="Theme - JS Puns"){ //$(‘#design’).val()
+  if($('#design option:selected').text()==="Theme - JS Puns"){
  $shirtColor.show();
  $("#color").val("cornflowerblue").show();
  $("#color option[value = cornflowerblue]").show();
@@ -102,16 +103,18 @@ $("input[name='express']").on("click", function(){
     if($(this).is(":checked")){
       totalCost = totalCost + 100;
       $(".activities p").text("Total Cost: $ " + totalCost);
+      //make a conflicting event unavailable
+      $("[name='node']").attr("disabled", "true").parent().fadeOut("slow");
+      $("[name='npm']").attr("disabled", "true").parent().fadeOut("slow");
     } else {
       totalCost = totalCost - 100;
       $(".activities p").text("Total Cost: $ " + totalCost);
-    }
-    //make a conflicting event unavailable
-    $("[name='node']").attr("disabled", "true").parent().fadeOut("slow");
-    $("[name='npm']").attr("disabled", "true").parent().fadeOut("slow");
+    
+    
     //if the user doesn't select JS libraries then other events will be available
     $("[name='node']").removeAttr("disabled").parent().toggle()
     $("[name='npm']").removeAttr("disabled").parent().toggle()
+    }
 });
 
 //Add cost to NODE event
@@ -179,6 +182,36 @@ $("input[name='all']").on("click", function(){
   }
 });
 
+//"Payment Info" section
 
+//Display payment sections based on the payment option chosen in the select menu.
 
+//The "Credit Card" payment option is the default option when the page loads
+$("#payment").val("credit card").show();
+$(".paypal").focus();
 
+//hide the "PayPal" and "Bitcoin" information./
+$(".paypal").show();
+$(".bitcoin").show();
+
+//Payment option in the select menu should match the payment option displayed on the page.
+//When a user selects the "PayPal" payment option, the PayPal information should display, and the credit card and “Bitcoin” information should be hidden.
+let $paymentMethod = $("#payment");
+$paymentMethod.change(function(){
+  if($("#payment option:selected").text()==="PayPal"){
+  $(".paypal").show();
+  $(".bitcoin").hide();
+  $("#credit-card").hide();
+  // If the user selects "Bitcoin" option, its info should display,and credit card and “PayPal” information should be hidden.
+  } else if ($("#payment option:selected").text()==="Bitcoin") {
+    $(".bitcoin").show();
+    $(".paypal").hide();
+    $("#credit-card").hide();
+    //if the user selects credit card, then bitcoin and paypal will be unavailable
+  } else if ($("#payment option:selected").text()==="Credit Card") {
+    $("#credit-card").show();
+    $(".paypal").hide();
+    $(".bitcoin").hide();
+  }
+    
+});
