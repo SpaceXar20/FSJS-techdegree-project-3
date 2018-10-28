@@ -227,7 +227,7 @@ $paymentMethod.change(function(){
 //FORM VALIDATIONS
 //If any of the following validation errors exist, prevent the user from submitting the form:
 
-//Name field can't be blank,otherwise the page wont submit
+//Name field can't be blank,otherwise the page won't submit
 $("form").submit(function(event){
   if ( $( "input:first" ).val() === "" ) {
      alert("Please type your name on the form.You must have a name right?")
@@ -244,7 +244,7 @@ $("form").submit(function(event){
 });
 
 //Email field must be a validly formatted e-mail address
-const emailInput = document.getElementById("email"); //Since I found regex to be really challenging, I had to revisit the project we did in the regex videos and some notes I took in order to complete this challenge in doing that, after doing o, I am beginning to understand regex a little better
+const emailInput = document.getElementById("email"); //Since I found regex to be really challenging, I had to revisit the project we did in the regex videos and some notes I took in order to complete this challenge in doing that,  I am beginning to understand regex a little better
 function isValidEmail(email) {
   return /^[^@]+@[^@.]+\.[a-z]+$/i.test(email);
   }
@@ -274,10 +274,41 @@ function isValidEmail(email) {
 //User must select at least one checkbox under the "Register for Activities" section of the form in order to submit
 $(document).submit(function(event){ 
   if($('#checkBoxes input[type="checkbox"]:checked').length !== 0){
-    alert('one or more checked');
+    alert("You\'re going to an event? Awesome!!");
   }else{
     alert('Please register to at least one workshop before submitting');
     return false
   }
 });
 
+//MAKING sure the user has supplied a Credit Card number, a Zip Code, and a 3 number CVV value before submission
+ 
+//The form will not submit if the user does not type a card number
+$("form").submit(function(event){ 
+  if ( $( "input[name='user_cc-num']" ).val() === "" ) {
+     alert("A credit card or debit card is needed to process your payment!")
+    return false;
+ }
+});
+
+//The credit card field should only accept a number between 13 and 16 digits
+const creditCardInput = document.getElementById("cc-num");
+function isValidEmail(email) {
+  return / /i.test(cc-num);
+  }
+
+  //The form will not submit if the user does not type a zip code
+$("form").submit(function(event){ 
+  if ( $( "input[name='user_zip']" ).val() === "" ) {
+     alert("You cannot submit the form without a zip code number!")
+    return false;
+ }
+});
+
+//The form will not submit if the user does not type a CVV number
+$("form").submit(function(event){ 
+  if ( $( "input[name='user_cvv']" ).val() === "" ) {
+     alert("You cannot submit the form without a CVV number!")
+    return false;
+ }
+});

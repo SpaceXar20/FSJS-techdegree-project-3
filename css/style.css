@@ -21,8 +21,8 @@ float: right
 
 body {
   font: 1em/1.5;
-  color: #184f68;
-	background: #accbd9;
+  color: #e99903;
+	background: #f8e800;
 }
 
 header {
@@ -45,7 +45,7 @@ a {
 
 form {
 	padding: .875em 1.875em 1.875em;
-	background: #85b5ca;
+	background: #bdc3c5;
 }
 
 fieldset,
