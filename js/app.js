@@ -68,14 +68,12 @@ $("input[name='js-frameworks']").on("click", function(){
 
    //Prevent conflict between JS Frameworks and other events that are at the same time
 $("[name='express']").attr("disabled", "true").parent().fadeOut("slow");
-$("[name='build-tools']").attr("disabled", "true").parent().fadeOut("slow");
 } else {
   //take away $100 from totalCost
   totalCost = totalCost - 100;
   $(".activities p").text("Total: $ " + totalCost);
   //return the deleted events back if the user chooses not to go to JavaScript Frameworks Workshop 
   $("[name='express']").removeAttr("disabled").parent().toggle()
-  $("[name='build-tools']").removeAttr("disabled").parent().toggle()
  }
 });
 
@@ -84,18 +82,16 @@ $("input[name='express']").on("click", function(){
   if($(this).is(":checked")){
     totalCost = totalCost + 100;
     $(".activities p").text("Total Cost: $ " + totalCost);
-    //When the user chooses express workshop, the javascript frameworks  and build tools workshop will be unavailable to avoid conflict
+    //When the user chooses express workshop, the javascript frameworks workshop will be unavailable to avoid conflict
    $("[name='js-frameworks']").attr("disabled", "true").parent().fadeOut("slow");
-   $("[name='build-tools']").attr("disabled", "true").parent().fadeOut("slow");
-  } else {
+    } else {
     //take away $100 
     totalCost = totalCost - 100;
     $(".activities p").text("Total Cost: $ " + totalCost);
 
     //if the user doesn't select express then other events will be available
     $("[name='js-frameworks']").removeAttr("disabled").parent().toggle()
-    $("[name='build-tools']").removeAttr("disabled").parent().toggle()
-  }
+    } 
 });
 
 //Add cost to Javascript Libraries
@@ -105,15 +101,12 @@ $("input[name='express']").on("click", function(){
       $(".activities p").text("Total Cost: $ " + totalCost);
       //make a conflicting event unavailable
       $("[name='node']").attr("disabled", "true").parent().fadeOut("slow");
-      $("[name='npm']").attr("disabled", "true").parent().fadeOut("slow");
     } else {
       totalCost = totalCost - 100;
       $(".activities p").text("Total Cost: $ " + totalCost);
     
-    
-    //if the user doesn't select JS libraries then other events will be available
+      //if the user doesn't select JS libraries then other events will be available
     $("[name='node']").removeAttr("disabled").parent().toggle()
-    $("[name='npm']").removeAttr("disabled").parent().toggle()
     }
 });
 
@@ -124,51 +117,36 @@ $("input[name='node']").on("click", function(){
   $(".activities p").text("Total Cost: " + totalCost);
   //if the user chooses node, then other conflicting events won't be available 
   $("[name='js-libs']").attr("disabled", "true").parent().fadeOut("slow");
-  $("[name='npm']").attr("disabled", "true").parent().fadeOut("slow");
   } else {
     totalCost = totalCost - 100;
     $(".activities p").text("Total Cost: $ " + totalCost);
     //if the user doesn't choose node, then other events will be available
     $("[name='js-libs']").removeAttr("disabled").parent().toggle()
-    $("[name='npm']").removeAttr("disabled").parent().toggle()
-  }
+    }
 });
 
 
-//If the user chooses Builds tools workshop add cost
+//If the user chooses Builds tools workshop, add cost
 $("input[name='build-tools']").on("change", function(){
   if($(this).is(":checked")){
     totalCost = totalCost + 100;
     $(".activities p").text("Total Cost: $ " + totalCost);
-    //prevent other events from conflicting with build tools workshop
-    $("[name='js-frameworks']").attr("disabled", "true").parent().fadeOut("slow");
-   $("[name='express']").attr("disabled", "true").parent().fadeOut("slow");
   } else {
     totalCost = totalCost - 100;
     $(".activities p").text("Total Cost: $ " + totalCost);
-    
-    //if the user doesn't select "build tools" then other events will be available
-    $("[name='js-frameworks']").removeAttr("disabled").parent().toggle()
-  $("[name='express']").removeAttr("disabled").parent().toggle()
-  }
+    }
 });
 
-//When the user chooses the npm workshop
+//When the user chooses the npm workshop add cost
 $("input[name='npm']").on("click", function(){
   if($(this).is(":checked")){
     totalCost = totalCost + 100;
     $(".activities p").text("Total Cost: $ " + totalCost);
-    //prevent conflicts with other events
-    $("[name='js-libs']").attr("disabled", "true").parent().fadeOut("slow");
-    $("[name='node']").attr("disabled", "true").parent().fadeOut("slow");
-  } else {
+    
+   } else {
     totalCost = totalCost - 100;
     $(".activities p").text("Total Cost: $ " + totalCost);
-    
-    //if the user doesn't select "npm workshop" then other events will be available
-    $("[name='js-libs']").removeAttr("disabled").parent().toggle()
-    $("[name='node']").removeAttr("disabled").parent().toggle()
-  }
+    }
 });
 
 //Adding cost when the user chooses the Main Conference
