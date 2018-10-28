@@ -142,7 +142,6 @@ $("input[name='npm']").on("click", function(){
   if($(this).is(":checked")){
     totalCost = totalCost + 100;
     $(".activities p").text("Total Cost: $ " + totalCost);
-    
    } else {
     totalCost = totalCost - 100;
     $(".activities p").text("Total Cost: $ " + totalCost);
@@ -270,10 +269,18 @@ $("form").submit(function(event){
 });
 
 //The credit card field should only accept a number between 13 and 16 digits
-//const creditCardInput = document.getElementById("cc-num");
-//function isValidEmail(email) {
-  //return / /i.test(cc-num);
-  //}
+$("#ccNumberError").hide() //<-This is an error message that is hidden by default but will show up if the user doesn't type ccCard number correctly
+const creditCard = () => {
+const ccNumber = document.getElementById('cc-num').value;
+if (ccNumber.length < 13 || ccNumber.length > 16 || isNaN(ccNumber)|| ccNumber==="") {
+console.log("The credit card is not valid");
+$("#ccNumberError").show();
+return false;
+ } 
+   console.log('valid credit card');
+   $("#ccNumberError").hide();
+   return true;  
+}
 
   //The form will not submit if the user does not type a zip code
 $("form").submit(function(event){ 
