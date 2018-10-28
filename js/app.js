@@ -269,18 +269,13 @@ $("form").submit(function(event){
 });
 
 //The credit card field should only accept a number between 13 and 16 digits
-$("#ccNumberError").hide() //<-This is an error message that is hidden by default but will show up if the user doesn't type ccCard number correctly
-const creditCard = () => {
 const ccNumber = document.getElementById('cc-num').value;
-if (ccNumber.length < 13 || ccNumber.length > 16 || isNaN(ccNumber)|| ccNumber==="") {
-alert("The credit card is not valid");
-$("#ccNumberError").show();
-return false;
- } 
-   alert('valid credit card');
-   $("#ccNumberError").hide();
-   return true;  
-}
+$("form").submit(function(event){ 
+  if  (ccNumber.length < 13 || ccNumber.length > 16 || isNaN(ccNumber)|| ccNumber===""){
+     alert("Debit or Credit Card Number must be between 13 and 16 digits")
+    return false;
+ }
+});
 
   //The form will not submit if the user does not type a zip code
 $("form").submit(function(event){ 
