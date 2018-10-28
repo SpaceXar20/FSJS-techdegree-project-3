@@ -273,7 +273,7 @@ $("#ccNumberError").hide() //<-This is an error message that is hidden by defaul
 const creditCard = () => {
 const ccNumber = document.getElementById('cc-num').value;
 if (ccNumber.length < 13 || ccNumber.length > 16 || isNaN(ccNumber)|| ccNumber==="") {
-console.log("The credit card is not valid");
+alert("The credit card is not valid");
 $("#ccNumberError").show();
 return false;
  } 
