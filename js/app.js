@@ -277,7 +277,7 @@ alert("The credit card is not valid");
 $("#ccNumberError").show();
 return false;
  } 
-   console.log('valid credit card');
+   alert('valid credit card');
    $("#ccNumberError").hide();
    return true;  
 }
