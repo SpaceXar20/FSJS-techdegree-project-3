@@ -12,6 +12,13 @@ button {
  font-family: 'Roboto', sans-serif;
 }
 
+.emailSpan{
+color: red;	
+display: inline;
+float: right
+
+}
+
 body {
   font: 1em/1.5;
   color: #184f68;

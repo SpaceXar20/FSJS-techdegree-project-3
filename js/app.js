@@ -1,6 +1,6 @@
 $("#name").focus(); //Set focus on the first text field
 
-//”Job Role” section,
+//JOB ROLE SECTION
 // a text field will be revealed when the "Other" option is selected
  $(document).ready(function()
 {
@@ -18,7 +18,7 @@ $("#name").focus(); //Set focus on the first text field
  $("#other-title").hide();
 });
 
-//T-Shirt Info” section
+//T-SHIRT INFO SECTION 
 let $shirtDesign = $("#design");
 let $shirtColor = $("#colors-js-puns");
 
@@ -53,7 +53,7 @@ $shirtDesign.change(function(){
 
 
 
-//Registering for Tech Workshops
+//REGISTERING FOR WORKSHOPS
 
 //this variable represents the cost of each event
 let totalCost = 0;
@@ -182,7 +182,7 @@ $("input[name='all']").on("click", function(){
   }
 });
 
-//"Payment Info" section
+//PAYMENT INFO SECTION
 
 //Display payment sections based on the payment option chosen in the select menu.
 
@@ -224,14 +224,60 @@ $paymentMethod.change(function(){
   } 
 });
 
-//Form Validation
+//FORM VALIDATIONS
 //If any of the following validation errors exist, prevent the user from submitting the form:
 
-//Name field can't be blank
+//Name field can't be blank,otherwise the page wont submit
 $("form").submit(function(event){
-  let $nameField = $('user_name')
   if ( $( "input:first" ).val() === "" ) {
-    alert("Please type your name")
+     alert("Please type your name on the form.You must have a name right?")
     return false;
  }
 });
+
+//The form will not submit if the user does not type an email
+$("form").submit(function(event){ 
+  if ( $( "input[name='user_email']" ).val() === "" ) {
+     alert("Please type a valid email!")
+    return false;
+ }
+});
+
+//Email field must be a validly formatted e-mail address
+const emailInput = document.getElementById("email"); //Since I found regex to be really challenging, I had to revisit the project we did in the regex videos and some notes I took in order to complete this challenge in doing that, after doing o, I am beginning to understand regex a little better
+function isValidEmail(email) {
+  return /^[^@]+@[^@.]+\.[a-z]+$/i.test(email);
+  }
+
+  // show element when show is true, hide when false
+  function showOrHideTip(show, element) {
+    
+    if (show) {
+      element.style.display = "inherit";
+    } else {
+      element.style.display = "none";
+    }
+  }
+//set up event 
+  function createListener(validator) {
+    return e => {
+      const text = e.target.value;
+      const valid = validator(text);
+      const showTip = text !== "" && !valid;
+      const tooltip = e.target.nextElementSibling;
+      showOrHideTip(showTip, tooltip);
+    };
+  }
+
+  emailInput.addEventListener("input", createListener(isValidEmail));
+
+//User must select at least one checkbox under the "Register for Activities" section of the form in order to submit
+$(document).submit(function(event){ 
+  if($('#checkBoxes input[type="checkbox"]:checked').length !== 0){
+    alert('one or more checked');
+  }else{
+    alert('Please register to at least one workshop before submitting');
+    return false
+  }
+});
+
