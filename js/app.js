@@ -292,10 +292,10 @@ $("form").submit(function(event){
 });
 
 //The credit card field should only accept a number between 13 and 16 digits
-const creditCardInput = document.getElementById("cc-num");
-function isValidEmail(email) {
-  return / /i.test(cc-num);
-  }
+//const creditCardInput = document.getElementById("cc-num");
+//function isValidEmail(email) {
+  //return / /i.test(cc-num);
+  //}
 
   //The form will not submit if the user does not type a zip code
 $("form").submit(function(event){ 
