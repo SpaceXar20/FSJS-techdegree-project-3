@@ -281,7 +281,7 @@ $("form").submit(function(event){
 $("form").submit(function(event){ 
   if ( $( "input[name='user_zip']" ).val() === "" ) {
      alert("You cannot submit the form without a zip code number!")
-    return false;
+    return true;
  }
 });
 
