@@ -274,14 +274,14 @@ $("form").submit(function(event){
   if  (ccNumber.length < 13 || ccNumber.length > 16 || isNaN(ccNumber)|| ccNumber===""){
      alert("Debit or Credit Card Number must be between 13 and 16 digits")
     return false;
- }
+ } 
 });
 
   //The form will not submit if the user does not type a zip code
 $("form").submit(function(event){ 
   if ( $( "input[name='user_zip']" ).val() === "" ) {
      alert("You cannot submit the form without a zip code number!")
-    return false;
+    return true;
  }
 });
 
