@@ -269,12 +269,18 @@ $("form").submit(function(event){
 });
 
 //The credit card field should only accept a number between 13 and 16 digits
-const ccNumber = document.getElementById('cc-num').value;
 $("form").submit(function(event){ 
-  if  (ccNumber.length !== 16 && ccNumber.length !== 13 || isNaN(ccNumber)|| ccNumber===""){
-     alert("Debit or Credit Card Number must be between 13 and 16 digits")
+  const ccNumber = document.getElementById('cc-num').value;
+  if (isNaN(ccNumber) || ccNumber === "") {
+    alert("Debit or Credit Card Number must be between 13 and 16 digits.You cant leave blank,use letters or special symbols!")
     return false;
- } 
+  } else if (ccNumber.length > 0 && ccNumber.length < 13) {
+    alert("CC Number can't have less than 13 digits!")
+    return false;
+  } else if (ccNumber.length > 16){
+    alert("CC Number can't be more than 16 digits!")
+    return false;
+  }
 });
 
   //The form will not submit if the user does not type a zip code
@@ -285,10 +291,41 @@ $("form").submit(function(event){
  }
 });
 
+//The Zip Code field should accept a 5-digit number
+$("form").submit(function(event){ 
+  const zipCode = document.getElementById('zip').value;
+  if (isNaN(zipCode) || zipCode === "") {
+    alert("The zip code number has to be a five digit number.You cant leave blank,use letters or special symbols!")
+    return false;
+  } else if (zipCode.length > 0 && zipCode.length < 5) {
+    alert("Zip Code Number can't have less than 5 digits!")
+    return false;
+  } else if (zipCode.length > 5){
+    alert("Zip Code Number can't be more than 5 digits!")
+    return false;
+  }
+});
+
+
 //The form will not submit if the user does not type a CVV number
 $("form").submit(function(event){ 
   if ( $( "input[name='user_cvv']" ).val() === "" ) {
      alert("You cannot submit the form without a CVV number!")
     return false;
  }
+});
+
+//The CVV should only accept a number that is exactly 3 digits long.
+$("form").submit(function(event){ 
+  const cvvNumber = document.getElementById('cvv').value;
+  if (isNaN(cvvNumber) || cvvNumber === "") {
+    alert("The CVV number has to be ONLY a three digit number.You cant leave blank,use letters or special symbols!")
+    return false;
+  } else if (cvvNumber.length > 0 && cvvNumber.length < 3) {
+    alert("CVV Number can't have less than 3 digits!")
+    return false;
+  } else if (cvvNumber.length > 3){
+    alert("CVV  Number can't be more than 3 digits!")
+    return false;
+  }
 });
